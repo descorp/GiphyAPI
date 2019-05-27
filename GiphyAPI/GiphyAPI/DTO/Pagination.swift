@@ -9,8 +9,8 @@
 import Foundation
 
 // MARK: - Pagination
-struct Pagination: Codable {
-    let totalCount, count, offset: Int
+public struct Pagination: Codable {
+    public let totalCount, count, offset: Int
     
     enum CodingKeys: String, CodingKey {
         case totalCount = "total_count"

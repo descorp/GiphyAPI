@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		40007648229C74510004EE01 /* f2.shared.global.fastly.net.cer in Resources */ = {isa = PBXBuildFile; fileRef = 40007646229C74430004EE01 /* f2.shared.global.fastly.net.cer */; };
 		40B1925F2295586300664959 /* GiphyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B192552295586300664959 /* GiphyAPI.framework */; };
 		40B192642295586300664959 /* GiphyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192632295586300664959 /* GiphyAPITests.swift */; };
 		40B192662295586300664959 /* GiphyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B192582295586300664959 /* GiphyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,7 +23,6 @@
 		40B192882295F2D900664959 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192872295F2D900664959 /* Gif.swift */; };
 		40B1928A2295F67F00664959 /* GiphyRequestBuilderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192892295F67F00664959 /* GiphyRequestBuilderTests.swift */; };
 		40B1928C2295F80800664959 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40B1928B2295F80800664959 /* config.plist */; };
-		40B1929022972B0E00664959 /* f2.shared.global.fastly.net.cer in Resources */ = {isa = PBXBuildFile; fileRef = 40B1928F22972B0E00664959 /* f2.shared.global.fastly.net.cer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		40007646229C74430004EE01 /* f2.shared.global.fastly.net.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = f2.shared.global.fastly.net.cer; sourceTree = "<group>"; };
 		40B192552295586300664959 /* GiphyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiphyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B192582295586300664959 /* GiphyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiphyAPI.h; sourceTree = "<group>"; };
 		40B192592295586300664959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -54,7 +55,6 @@
 		40B192872295F2D900664959 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		40B192892295F67F00664959 /* GiphyRequestBuilderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiphyRequestBuilderTests.swift; sourceTree = "<group>"; };
 		40B1928B2295F80800664959 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
-		40B1928F22972B0E00664959 /* f2.shared.global.fastly.net.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = f2.shared.global.fastly.net.cer; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,7 +111,6 @@
 		40B192622295586300664959 /* GiphyAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				40B1928F22972B0E00664959 /* f2.shared.global.fastly.net.cer */,
 				40B1928B2295F80800664959 /* config.plist */,
 				40B192892295F67F00664959 /* GiphyRequestBuilderTests.swift */,
 				40B192632295586300664959 /* GiphyAPITests.swift */,
@@ -123,6 +122,7 @@
 		40B1926F2295587300664959 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				40007646229C74430004EE01 /* f2.shared.global.fastly.net.cer */,
 				40B192582295586300664959 /* GiphyAPI.h */,
 				40B192592295586300664959 /* Info.plist */,
 			);
@@ -258,7 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B1928C2295F80800664959 /* config.plist in Resources */,
-				40B1929022972B0E00664959 /* f2.shared.global.fastly.net.cer in Resources */,
+				40007648229C74510004EE01 /* f2.shared.global.fastly.net.cer in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

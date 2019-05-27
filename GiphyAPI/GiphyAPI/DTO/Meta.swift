@@ -9,9 +9,9 @@
 import Foundation
 
 // MARK: - Meta
-struct Meta: Codable {
-    let status: Int
-    let msg, responseID: String
+public struct Meta: Codable {
+    public let status: Int
+    public let msg, responseID: String
     
     enum CodingKeys: String, CodingKey {
         case status, msg
