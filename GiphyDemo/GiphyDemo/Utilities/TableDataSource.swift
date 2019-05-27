@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GiphyAPI
 
 protocol TableDataSource {
     associatedtype Item
@@ -25,5 +26,46 @@ extension TableDataSource where Item:Equatable {
             }
         }
         return nil
+    }
+}
+
+class GifsDataSource: NSObject, TableDataSource, UITableViewDataSourcePrefetching {
+    
+    typealias Item = Gif
+    typealias Dependency = HasGiphyService
+    private let dependency: Dependency
+    private var collection: [Gif] = []
+    private let pageSize: Int
+    
+    init(pageSize: Int = 25, dependency: Dependency) {
+        self.dependency = dependency
+        self.pageSize = pageSize
+    }
+    
+    var count: Int {
+        return collection.count
+    }
+    
+    subscript(index: Int) -> Gif {
+        get {
+            return collection[index]
+        }
+        set(value) {
+            collection[index] = value
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        if let maxRow = indexPaths.max()?.row, maxRow > count {
+            let page = maxRow / pageSize
+            self.dependency.gifService.getTranding(limit: pageSize, page: page) { [weak self] result in
+                switch result {
+                case .success(let items):
+                    self?.collection.append(contentsOf: items)
+                case .failure(_):
+                    print("Error while fetching page: \(page)")
+                }
+            }
+        }
     }
 }

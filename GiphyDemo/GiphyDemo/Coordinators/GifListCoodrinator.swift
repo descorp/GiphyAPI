@@ -6,8 +6,8 @@
 //  Copyright © 2018 Vladimir Abramichev. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import GiphyAPI
 
 class GifListCoodrinator: Coordinator {
     typealias Dependency = HasImageService & HasGiphyService
@@ -27,14 +27,7 @@ class GifListCoodrinator: Coordinator {
         else { return }
         
         navigationController.navigationBar.prefersLargeTitles = true
-        navigationController.pushViewController(LoadingViewController(), animated: true)
-        
-        dependency.gifService.getTranding(limit: 25, page: 0) { [weak self] result in
-            guard case .success(let items) = result else { return }
-            
-            navigationController.popViewController(animated: true)
-            
-            //navigationController.pushViewController(TableViewController , animated: true)
-        }
+        let detaSource = GifsDataSource(dependency: self.dependency)
+        navigationController.pushViewController(TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: detaSource) , animated: true)
     }
 }

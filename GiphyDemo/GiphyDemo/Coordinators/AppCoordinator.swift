@@ -15,15 +15,6 @@ class AppCoordinator: Coordinator {
     
     // MARK: - Properties
     let window: UIWindow?
-    lazy var dependency: AppDependency = {
-        var ioc = AppDependency()
-        let config = Configuration(bundle: Bundle.main)
-        let giphyService = GiphyService(requestBuilder: GiphyRequestBuilder(with: config))
-        ioc.add(giphyService, as: ImageLoader.self)
-        ioc.add(giphyService, as: GiphyService.self)
-        ioc.add(ImageChache(dependency: ioc), as: ImageService.self)
-        return ioc
-    }()
     
     // MARK: - Coordinator
     init(window: UIWindow) {
@@ -37,7 +28,7 @@ class AppCoordinator: Coordinator {
     override func start() {
         let gifsCoordinator = GifListCoodrinator(withRootViewController: self.rootViewController,
                                                   parentCoordinator: nil,
-                                                  dependency: dependency)
+                                                  dependency: AppDependency.shared)
         self.childCoordinators.append(gifsCoordinator)
         gifsCoordinator.start()
     }
@@ -45,5 +36,16 @@ class AppCoordinator: Coordinator {
     override func finish() {
         
     }
-    
+}
+
+extension AppDependency {
+    static var shared: AppDependency = {
+        var ioc = AppDependency()
+        let config = Configuration(bundle: Bundle.main)
+        let giphyService = GiphyService(requestBuilder: GiphyRequestBuilder(with: config))
+        ioc.add(giphyService, as: ImageLoader.self)
+        ioc.add(giphyService, as: GiphyService.self)
+        ioc.add(ImageChache(dependency: ioc), as: ImageService.self)
+        return ioc
+    }()
 }

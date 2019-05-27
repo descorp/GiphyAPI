@@ -11,7 +11,7 @@ import GiphyAPI
 
 class GifDetailsCoordinator: Coordinator {
     
-    typealias Dependency = HasImageLoader
+    typealias Dependency = HasImageService
     
     private let model: Gif
     private let dependency: Dependency
@@ -26,7 +26,7 @@ class GifDetailsCoordinator: Coordinator {
     }
     
     override func start() {
-        let viewController = ImageViewController(imageUrl: model.images.original.webp, loader:dependency.imageLoader)
+        let viewController = ImageViewController(imageUrl: model.images.original.webp, dependency:dependency)
         rootViewController.pushViewController(viewController, animated: true)
     }
     

@@ -9,9 +9,10 @@
 import UIKit
 
 final class ImageViewController: LoadingViewController {
+    typealias Dependency = HasImageService
     
     private let url: String
-    private let loader: ImageLoader
+    private let dependency: Dependency
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect.zero)
@@ -20,9 +21,9 @@ final class ImageViewController: LoadingViewController {
         return imageView
     }()
     
-    init(imageUrl: String, loader: ImageLoader) {
+    init(imageUrl: String, dependency: Dependency) {
         self.url = imageUrl
-        self.loader = loader
+        self.dependency = dependency
         super.init()
     }
     
@@ -33,13 +34,13 @@ final class ImageViewController: LoadingViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loader.loadImage(path: url) { [weak self] result in
+        dependency.imageService.load(path: url) { [weak self] result in
             switch result {
                 case .failure(_):
                     self?.imageView.image = UIImage(named: "icon_broken_image")
-                case .success(let data):
+                case .success(let image):
                     self?.indicator.stopAnimating()
-                    self?.imageView.image = UIImage(data: data)
+                    self?.imageView.image = image
             }
         }
     }
