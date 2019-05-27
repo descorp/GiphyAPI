@@ -11,9 +11,9 @@ import ApiProvider
 
 public class GiphyRequestBuilder: RequestBuilder {
     
-    private let config : Configuration
+    private let config : GiphyConfiguration
     
-    public init(with configuration: Configuration) {
+    public init(with configuration: GiphyConfiguration) {
         self.config = configuration
     }
     

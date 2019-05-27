@@ -9,12 +9,12 @@
 import Foundation
 
 // MARK: - User
-struct User: Codable {
-    let avatarURL, bannerURL: String
-    let profileURL: String
-    let username, displayName: String
-    let isVerified: Bool
-    let bannerImage: String?
+public struct User: Codable {
+    public let avatarURL, bannerURL: String
+    public let profileURL: String
+    public let username, displayName: String
+    public let isVerified: Bool
+    public let bannerImage: String?
     
     enum CodingKeys: String, CodingKey {
         case avatarURL = "avatar_url"

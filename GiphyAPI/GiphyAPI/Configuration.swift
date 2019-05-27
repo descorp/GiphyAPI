@@ -9,18 +9,24 @@
 import Foundation
 import ApiProvider
 
-extension Configuration {
-    var appKey: String {
+public protocol GiphyConfiguration {
+    var appKey: String { get }
+    var url: String { get }
+    var version: String { get }
+}
+
+extension Configuration: GiphyConfiguration {
+    public var appKey: String {
         set { config["AppKey"] = newValue }
         get { return config["AppKey"] as! String }
     }
     
-    var url: String {
+    public var url: String {
         set { config["Url"] = newValue }
         get { return config["Url"] as! String }
     }
     
-    var version: String {
+    public var version: String {
         set { config["Version"] = newValue }
         get { return config["Version"] as! String }
     }

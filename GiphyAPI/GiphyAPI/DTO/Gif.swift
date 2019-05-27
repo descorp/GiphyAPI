@@ -10,20 +10,20 @@ import Foundation
 
 // MARK: - Datum
 public struct Gif: Codable {
-    let type: TypeEnum
-    let id, slug: String
-    let url, bitlyGIFURL, bitlyURL, embedURL: String
-    let username: String
-    let source: String
-    let rating: Rating
-    let contentURL, sourceTLD: String
-    let sourcePostURL: String
-    let isSticker: Int
-    let importDatetime, trendingDatetime: String
-    let user: User?
-    let images: Images
-    let title: String
-    let analytics: Analytics
+    public let type: TypeEnum
+    public let id, slug: String
+    public let url, bitlyGIFURL, bitlyURL, embedURL: String
+    public let username: String
+    public let source: String
+    public let rating: Rating
+    public let contentURL, sourceTLD: String
+    public let sourcePostURL: String
+    public let isSticker: Int
+    public let importDatetime, trendingDatetime: String
+    public let user: User?
+    public let images: Images
+    public let title: String
+    public let analytics: Analytics
     
     enum CodingKeys: String, CodingKey {
         case type, id, slug, url
@@ -43,24 +43,24 @@ public struct Gif: Codable {
 
 // MARK: - Images
 public struct Images: Codable {
-    let fixedHeightStill, originalStill: The480_WStill
-    let fixedWidth: FixedHeight
-    let fixedHeightSmallStill: The480_WStill
-    let fixedHeightDownsampled: FixedHeight
-    let preview: DownsizedSmall
-    let fixedHeightSmall: FixedHeight
-    let downsizedStill, downsized, downsizedLarge, fixedWidthSmallStill: The480_WStill
-    let previewWebp: The480_WStill?
-    let fixedWidthStill: The480_WStill
-    let fixedWidthSmall: FixedHeight
-    let downsizedSmall: DownsizedSmall
-    let fixedWidthDownsampled: FixedHeight
-    let downsizedMedium: The480_WStill
-    let original, fixedHeight: FixedHeight
-    let hd: DownsizedSmall?
-    let looping: Looping
-    let originalMp4: DownsizedSmall
-    let previewGIF, the480WStill: The480_WStill
+    public let fixedHeightStill, originalStill: The480_WStill
+    public let fixedWidth: FixedHeight
+    public let fixedHeightSmallStill: The480_WStill
+    public let fixedHeightDownsampled: FixedHeight
+    public let preview: DownsizedSmall
+    public let fixedHeightSmall: FixedHeight
+    public let downsizedStill, downsized, downsizedLarge, fixedWidthSmallStill: The480_WStill
+    public let previewWebp: The480_WStill?
+    public let fixedWidthStill: The480_WStill
+    public let fixedWidthSmall: FixedHeight
+    public let downsizedSmall: DownsizedSmall
+    public let fixedWidthDownsampled: FixedHeight
+    public let downsizedMedium: The480_WStill
+    public let original, fixedHeight: FixedHeight
+    public let hd: DownsizedSmall?
+    public let looping: Looping
+    public let originalMp4: DownsizedSmall
+    public let previewGIF, the480WStill: The480_WStill
     
     enum CodingKeys: String, CodingKey {
         case fixedHeightStill = "fixed_height_still"
@@ -91,16 +91,16 @@ public struct Images: Codable {
 
 // MARK: - The480_WStill
 public struct The480_WStill: Codable {
-    let url: String
-    let width, height: String
-    let size: String?
+    public let url: String
+    public let width, height: String
+    public let size: String?
 }
 
 // MARK: - DownsizedSmall
 public struct DownsizedSmall: Codable {
-    let width, height: String
-    let mp4: String
-    let mp4Size: String
+    public let width, height: String
+    public let mp4: String
+    public let mp4Size: String
     
     enum CodingKeys: String, CodingKey {
         case width, height, mp4
@@ -110,13 +110,13 @@ public struct DownsizedSmall: Codable {
 
 // MARK: - FixedHeight
 public struct FixedHeight: Codable {
-    let url: String
-    let width, height, size: String
-    let mp4: String?
-    let mp4Size: String?
-    let webp: String
-    let webpSize: String
-    let frames, hash: String?
+    public let url: String
+    public let width, height, size: String
+    public let mp4: String?
+    public let mp4Size: String?
+    public let webp: String
+    public let webpSize: String
+    public let frames, hash: String?
     
     enum CodingKeys: String, CodingKey {
         case url, width, height, size, mp4
@@ -129,8 +129,8 @@ public struct FixedHeight: Codable {
 
 // MARK: - Looping
 public struct Looping: Codable {
-    let mp4: String
-    let mp4Size: String
+    public let mp4: String
+    public let mp4Size: String
     
     enum CodingKeys: String, CodingKey {
         case mp4
