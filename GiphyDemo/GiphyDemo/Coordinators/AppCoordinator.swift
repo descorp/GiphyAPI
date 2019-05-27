@@ -19,7 +19,9 @@ class AppCoordinator: Coordinator {
     // MARK: - Coordinator
     init(window: UIWindow) {
         self.window = window
-        super.init(withRootController: RenderingViewController())
+        let root = RenderingViewController()
+        root.view.backgroundColor = .groupTableViewBackground
+        super.init(withRootController: root)
         
         window.rootViewController = self.rootViewController
         window.makeKeyAndVisible()
@@ -33,9 +35,7 @@ class AppCoordinator: Coordinator {
         gifsCoordinator.start()
     }
     
-    override func finish() {
-        
-    }
+    override func finish() { }
 }
 
 extension AppDependency {
@@ -44,7 +44,7 @@ extension AppDependency {
         let config = Configuration(bundle: Bundle.main)
         let giphyService = GiphyService(requestBuilder: GiphyRequestBuilder(with: config))
         ioc.add(giphyService, as: ImageLoader.self)
-        ioc.add(giphyService, as: GiphyService.self)
+        ioc.add(giphyService, as: DataProvider.self)
         ioc.add(ImageChache(dependency: ioc), as: ImageService.self)
         return ioc
     }()

@@ -22,12 +22,22 @@ class GifListCoodrinator: Coordinator {
     }
     
     override func start() {
-        guard
-            let navigationController =  rootViewController.navigationController
-        else { return }
+        rootViewController.navigationBar.prefersLargeTitles = true
+        rootViewController.render(LoadingViewController())
         
-        navigationController.navigationBar.prefersLargeTitles = true
-        let detaSource = GifsDataSource(dependency: self.dependency)
-        navigationController.pushViewController(TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: detaSource) , animated: true)
+        dependency.gifService.getTranding(limit: 25, page: 0) { result in
+            DispatchQueue.main.async { [weak self] in
+                guard let strongSelf = self else { return }
+                switch result {
+                case .success(let items):
+                    let dataSource = GifsDataSource(pageSize: 25, preset: items, dependency: strongSelf.dependency)
+                    let controller = TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: dataSource)
+                    strongSelf.rootViewController.render(controller)
+                case .failure(let error):
+                    let controller = ErrorViewController(error: error)
+                    strongSelf.rootViewController.render(controller)
+                }
+            }
+        }
     }
 }

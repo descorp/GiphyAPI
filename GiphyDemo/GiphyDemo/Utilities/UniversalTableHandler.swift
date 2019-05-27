@@ -50,6 +50,7 @@ where Cell.TableItem == T, Source.Item == T {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("Count:  \(dataSource.count)")
         return dataSource.count
     }
     

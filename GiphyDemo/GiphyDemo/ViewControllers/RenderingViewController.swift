@@ -10,9 +10,21 @@ import UIKit
 
 final class RenderingViewController: UINavigationController {
     private let animator = Animator()
+    private var renderee: UIViewController?
     
     override func viewDidLoad() {
         self.delegate = self
+    }
+    
+    func render(_ viewController: UIViewController) {
+        renderee = viewController
+        UIView.animate(withDuration: 0.5) { self.view.alpha = 0 }
+        DispatchQueue.main.async {
+            self.view.subviews.forEach { $0.removeFromSuperview() }
+            self.view.addSubview(viewController.view)
+            viewController.view.fill(container: self.view)
+        }
+        UIView.animate(withDuration: 0.5) { self.view.alpha = 1 }
     }
 }
 

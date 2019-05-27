@@ -13,17 +13,20 @@ final class ImageViewController: LoadingViewController {
     
     private let url: String
     private let dependency: Dependency
+    private var size: CGSize?
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect.zero)
         self.view.addSubview(imageView)
         imageView.fill(container: self.view)
+        imageView.contentMode = .center
         return imageView
     }()
     
-    init(imageUrl: String, dependency: Dependency) {
+    init(imageUrl: String, size: CGSize? = nil, dependency: Dependency) {
         self.url = imageUrl
         self.dependency = dependency
+        self.size = size
         super.init()
     }
     

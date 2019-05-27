@@ -34,12 +34,13 @@ class GifsDataSource: NSObject, TableDataSource, UITableViewDataSourcePrefetchin
     typealias Item = Gif
     typealias Dependency = HasGiphyService
     private let dependency: Dependency
-    private var collection: [Gif] = []
+    private var collection: [Gif]
     private let pageSize: Int
     
-    init(pageSize: Int = 25, dependency: Dependency) {
+    init(pageSize: Int = 25, preset: [Gif] = [], dependency: Dependency) {
         self.dependency = dependency
         self.pageSize = pageSize
+        self.collection = preset
     }
     
     var count: Int {

@@ -15,7 +15,21 @@ class GifTableViewCell: UITableViewCell, TableCell {
     var controller: UIViewController?
     
     func update(context: Gif) {
-        self.controller = ImageViewController(imageUrl: context.images.downsizedStill.url, dependency: AppDependency.shared)
-        controller?.view.fill(container: self.contentView, padding: UIEdgeInsets.init(top: 32, left: 0, bottom: 0, right: 0))
+        contentView.subviews.forEach { $0.removeFromSuperview() }
+        
+        let controller = ImageViewController(imageUrl: context.images.fixedWidthDownsampled.url, dependency: AppDependency.shared)
+        self.contentView.addSubview(controller.view)
+        controller.view.fill(container: self.contentView, padding: UIEdgeInsets(top: 32, left: 0, bottom: 0, right: 0))
+        self.controller = controller
+        
+        guard
+            let imageHeight = Double(context.images.original.height),
+            let widthHeight = Double(context.images.original.width)
+        else { return }
+        
+        let screenwidth = UIScreen.main.bounds.width
+        let height = CGFloat(imageHeight) * screenwidth / CGFloat(widthHeight)
+        
+        controller.view.heightAnchor.constraint(equalToConstant: height).isActive = true
     }
 }

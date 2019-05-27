@@ -42,14 +42,16 @@ class ImageChache: ImageService {
         self.imageLoader.loadImage(path: path) { [weak self] result in
             guard
                 case .success(let data) = result,
-                let image = UIImage(data: data)
-            else {
-                if case .failure(let error) = result { handler(.failure(error)) }
-                preconditionFailure("No data and no exception for image: \(path)")
+                let image = path.hasSuffix("gif") ? UIImage.gifImageWithData(data: data) : UIImage(data: data)
+                else {
+                    if case .failure(let error) = result { handler(.failure(error)) }
+                    preconditionFailure("No data and no exception for image: \(path)")
             }
-
-            self?.cache.setObject(image, forKey: path as NSString, cost: data.count)
-            handler(.success(image))
+            
+            DispatchQueue.main.async {
+                self?.cache.setObject(image, forKey: path as NSString, cost: data.count)
+                handler(.success(image))
+            }
         }
     }
 }

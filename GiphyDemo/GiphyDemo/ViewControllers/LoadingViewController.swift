@@ -15,7 +15,7 @@ class LoadingViewController: UIViewController {
     
     lazy var indicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .whiteLarge)
-        indicator.tintColor = .gray
+        indicator.color = .gray
         self.view.addSubview(indicator)
         indicator.fill(container: self.view)
         indicator.hidesWhenStopped = true

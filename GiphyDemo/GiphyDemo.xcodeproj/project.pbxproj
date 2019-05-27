@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		4000763A229BDFDE0004EE01 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007639229BDFDE0004EE01 /* TableDataSource.swift */; };
 		40007640229C034F0004EE01 /* GifTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4000763F229C034F0004EE01 /* GifTableViewCell.swift */; };
+		40007642229C40F00004EE01 /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 40007641229C40F00004EE01 /* config.plist */; };
+		40007644229C48AF0004EE01 /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007643229C48AF0004EE01 /* ErrorViewController.swift */; };
+		4000764A229CA3E70004EE01 /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007649229CA3E70004EE01 /* UIImage+Gif.swift */; };
 		40B1929E22972BD700664959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1929D22972BD700664959 /* AppDelegate.swift */; };
 		40B192A522972BDA00664959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B192A422972BDA00664959 /* Assets.xcassets */; };
 		40B192A822972BDA00664959 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B192A622972BDA00664959 /* LaunchScreen.storyboard */; };
@@ -34,6 +37,9 @@
 /* Begin PBXFileReference section */
 		40007639229BDFDE0004EE01 /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		4000763F229C034F0004EE01 /* GifTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifTableViewCell.swift; sourceTree = "<group>"; };
+		40007641229C40F00004EE01 /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		40007643229C48AF0004EE01 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
+		40007649229CA3E70004EE01 /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		40B1929A22972BD700664959 /* GiphyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B1929D22972BD700664959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		40B192A422972BDA00664959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -43,7 +49,7 @@
 		40B192B122972FCE00664959 /* GifDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifDetailsCoordinator.swift; sourceTree = "<group>"; };
 		40B192B222972FCE00664959 /* GifListCoodrinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GifListCoodrinator.swift; sourceTree = "<group>"; };
 		40B192B322972FCE00664959 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
-		40B192BA2297307300664959 /* f2.shared.global.fastly.net.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = f2.shared.global.fastly.net.cer; path = ../../../GiphyAPI/GiphyAPITests/f2.shared.global.fastly.net.cer; sourceTree = "<group>"; };
+		40B192BA2297307300664959 /* f2.shared.global.fastly.net.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = f2.shared.global.fastly.net.cer; path = ../../../GiphyAPI/GiphyAPI/Meta/f2.shared.global.fastly.net.cer; sourceTree = "<group>"; };
 		40B192BE229734D800664959 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		40B192C0229AB2BF00664959 /* GiphyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyService.swift; sourceTree = "<group>"; };
 		40B192C3229AD6C000664959 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
@@ -131,6 +137,7 @@
 		40B192B92297305B00664959 /* Meta */ = {
 			isa = PBXGroup;
 			children = (
+				40007641229C40F00004EE01 /* config.plist */,
 				40B192BA2297307300664959 /* f2.shared.global.fastly.net.cer */,
 				40B192A922972BDA00664959 /* Info.plist */,
 			);
@@ -154,6 +161,7 @@
 				40B192D0229AF32F00664959 /* ImageViewController.swift */,
 				40B192D5229B093B00664959 /* LoadingViewController.swift */,
 				40B192D7229B173600664959 /* TableViewController.swift */,
+				40007643229C48AF0004EE01 /* ErrorViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 				40B192CA229AEF8C00664959 /* UIViewExtension.swift */,
 				40B192CB229AEF8C00664959 /* DateExtensions.swift */,
 				40007639229BDFDE0004EE01 /* TableDataSource.swift */,
+				40007649229CA3E70004EE01 /* UIImage+Gif.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -229,6 +238,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40007642229C40F00004EE01 /* config.plist in Resources */,
 				40B192BB2297307300664959 /* f2.shared.global.fastly.net.cer in Resources */,
 				40B192A822972BDA00664959 /* LaunchScreen.storyboard in Resources */,
 				40B192A522972BDA00664959 /* Assets.xcassets in Resources */,
@@ -251,6 +261,7 @@
 				40B192B522972FCE00664959 /* GifDetailsCoordinator.swift in Sources */,
 				40B192C4229AD6C000664959 /* Dependencies.swift in Sources */,
 				4000763A229BDFDE0004EE01 /* TableDataSource.swift in Sources */,
+				4000764A229CA3E70004EE01 /* UIImage+Gif.swift in Sources */,
 				40B1929E22972BD700664959 /* AppDelegate.swift in Sources */,
 				40B192CE229AEF8C00664959 /* UIViewExtension.swift in Sources */,
 				40B192CD229AEF8C00664959 /* StringExtensions.swift in Sources */,
@@ -259,6 +270,7 @@
 				40B192D8229B173600664959 /* TableViewController.swift in Sources */,
 				40B192BF229734D800664959 /* ImageService.swift in Sources */,
 				40B192C1229AB2BF00664959 /* GiphyService.swift in Sources */,
+				40007644229C48AF0004EE01 /* ErrorViewController.swift in Sources */,
 				40B192CF229AEF8C00664959 /* DateExtensions.swift in Sources */,
 				40B192D1229AF32F00664959 /* ImageViewController.swift in Sources */,
 			);

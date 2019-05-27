@@ -28,7 +28,7 @@ struct AppDependency: HasImageService, HasImageLoader, HasGiphyService {
     }
     
     var gifService: DataProvider {
-        return container["GifProvider"] as! DataProvider
+        return container["DataProvider"] as! DataProvider
     }
     
     mutating func add(_ item: Any, as type: Any) {

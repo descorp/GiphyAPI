@@ -23,4 +23,9 @@ class TableViewController<T, Cell: TableCell, Source: TableDataSource>: UITableV
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        tableHandler.register(table: tableView)
+    }
+    
 }
