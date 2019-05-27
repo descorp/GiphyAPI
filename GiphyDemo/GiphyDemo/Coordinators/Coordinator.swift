@@ -11,13 +11,13 @@ import UIKit
 
 class Coordinator {
     
-    internal(set) var childCoordinators: [Coordinator] = []
+    var childCoordinators: [Coordinator] = []
     
     weak var parentCoordinator: Coordinator?
     
-    internal(set) var rootViewController: UIViewController
+    private(set) var rootViewController: RenderingViewController
     
-    internal init(withRootController viewController: UIViewController, andParentCoordinator parentCoordinator: Coordinator? = nil) {
+    internal init(withRootController viewController: RenderingViewController, andParentCoordinator parentCoordinator: Coordinator? = nil) {
         rootViewController = viewController
         self.parentCoordinator = parentCoordinator
     }
@@ -38,7 +38,7 @@ extension Coordinator {
     }
     
     func removeChildCoordinator(_ coordinator: Coordinator) {
-        if let index = childCoordinators.index(of: coordinator) {
+        if let index = childCoordinators.firstIndex(of: coordinator) {
             childCoordinators.remove(at: index).finish()
         } else {
             print("Couldn't remove coordinator: \(coordinator). It's not a child coordinator.")

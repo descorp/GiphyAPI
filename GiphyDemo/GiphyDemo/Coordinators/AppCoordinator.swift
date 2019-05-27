@@ -8,53 +8,38 @@
 
 import Foundation
 import UIKit
-
-struct AppDependency: HasMDB, HasLocation, HasLocale, HasImageService {
-    func load(path: String, than handler: @escaping (UIImage?, Error?) -> Void) {
-        imageLoader.load(path: path, than: handler)
-    }
-    
-    var currentLocation: String {
-        return locationService.currentLocation
-    }
-    
-    var currentLocale: String {
-        return localeService.currentLocale
-    }
-    
-    let moviesService: IMoviesProvider
-    let locationService: LocationService
-    let localeService: LocaleService
-    let imageLoader: ImageService
-}
+import ApiProvider
+import GiphyAPI
 
 class AppCoordinator: Coordinator {
     
     // MARK: - Properties
     let window: UIWindow?
-    let dependency: AppDependency
+    lazy var dependency: AppDependency = {
+        var ioc = AppDependency()
+        let config = Configuration(bundle: Bundle.main)
+        let giphyService = GiphyService(requestBuilder: GiphyRequestBuilder(with: config))
+        ioc.add(giphyService, as: ImageLoader.self)
+        ioc.add(giphyService, as: GiphyService.self)
+        ioc.add(ImageChache(dependency: ioc), as: ImageService.self)
+        return ioc
+    }()
     
     // MARK: - Coordinator
     init(window: UIWindow) {
         self.window = window
-        let config = EnvironmentConfiguration()
-        let mdbService: MoviesService = MoviesService(apiKey: config.appKey)
-        self.dependency = AppDependency(moviesService: mdbService,
-                                        locationService: LocationService(),
-                                        localeService: LocaleService(),
-                                        imageLoader: ImageService(imageLoader: mdbService))
-        super.init(withRootController: UINavigationController())
+        super.init(withRootController: RenderingViewController())
         
         window.rootViewController = self.rootViewController
         window.makeKeyAndVisible()
     }
     
     override func start() {
-        let rootCoordinator = NowInCinemaCoodrinator(withViewController: self.rootViewController,
-                                                     parentCoordinator: self,
-                                                     dependency: dependency)
-        self.childCoordinators.append(rootCoordinator)
-        rootCoordinator.start()
+        let gifsCoordinator = GifListCoodrinator(withRootViewController: self.rootViewController,
+                                                  parentCoordinator: nil,
+                                                  dependency: dependency)
+        self.childCoordinators.append(gifsCoordinator)
+        gifsCoordinator.start()
     }
     
     override func finish() {

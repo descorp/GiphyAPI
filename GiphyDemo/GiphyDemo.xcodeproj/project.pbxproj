@@ -7,29 +7,53 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4000763A229BDFDE0004EE01 /* TableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007639229BDFDE0004EE01 /* TableDataSource.swift */; };
 		40B1929E22972BD700664959 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1929D22972BD700664959 /* AppDelegate.swift */; };
-		40B192A022972BD700664959 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B1929F22972BD700664959 /* ViewController.swift */; };
-		40B192A322972BD700664959 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B192A122972BD700664959 /* Main.storyboard */; };
 		40B192A522972BDA00664959 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40B192A422972BDA00664959 /* Assets.xcassets */; };
 		40B192A822972BDA00664959 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 40B192A622972BDA00664959 /* LaunchScreen.storyboard */; };
 		40B192B422972FCE00664959 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192B022972FCE00664959 /* AppCoordinator.swift */; };
-		40B192B522972FCE00664959 /* MovieDetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192B122972FCE00664959 /* MovieDetailsCoordinator.swift */; };
-		40B192B622972FCE00664959 /* NowInCinemaCoodrinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192B222972FCE00664959 /* NowInCinemaCoodrinator.swift */; };
+		40B192B522972FCE00664959 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192B122972FCE00664959 /* DetailsCoordinator.swift */; };
+		40B192B622972FCE00664959 /* ListCoodrinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192B222972FCE00664959 /* ListCoodrinator.swift */; };
 		40B192B722972FCE00664959 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192B322972FCE00664959 /* Coordinator.swift */; };
+		40B192BB2297307300664959 /* f2.shared.global.fastly.net.cer in Resources */ = {isa = PBXBuildFile; fileRef = 40B192BA2297307300664959 /* f2.shared.global.fastly.net.cer */; };
+		40B192BF229734D800664959 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192BE229734D800664959 /* ImageService.swift */; };
+		40B192C1229AB2BF00664959 /* GiphyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192C0229AB2BF00664959 /* GiphyService.swift */; };
+		40B192C4229AD6C000664959 /* Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192C3229AD6C000664959 /* Dependencies.swift */; };
+		40B192C6229AEACD00664959 /* RenderingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192C5229AEACD00664959 /* RenderingViewController.swift */; };
+		40B192CC229AEF8C00664959 /* Throttler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192C8229AEF8C00664959 /* Throttler.swift */; };
+		40B192CD229AEF8C00664959 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192C9229AEF8C00664959 /* StringExtensions.swift */; };
+		40B192CE229AEF8C00664959 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192CA229AEF8C00664959 /* UIViewExtension.swift */; };
+		40B192CF229AEF8C00664959 /* DateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192CB229AEF8C00664959 /* DateExtensions.swift */; };
+		40B192D1229AF32F00664959 /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192D0229AF32F00664959 /* ImageViewController.swift */; };
+		40B192D6229B093B00664959 /* LoadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192D5229B093B00664959 /* LoadingViewController.swift */; };
+		40B192D8229B173600664959 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192D7229B173600664959 /* TableViewController.swift */; };
+		40B192DA229B400200664959 /* UniversalTableHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192D9229B400200664959 /* UniversalTableHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40007639229BDFDE0004EE01 /* TableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableDataSource.swift; sourceTree = "<group>"; };
 		40B1929A22972BD700664959 /* GiphyDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiphyDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B1929D22972BD700664959 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		40B1929F22972BD700664959 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		40B192A222972BD700664959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		40B192A422972BDA00664959 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		40B192A722972BDA00664959 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		40B192A922972BDA00664959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		40B192B022972FCE00664959 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		40B192B122972FCE00664959 /* MovieDetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsCoordinator.swift; sourceTree = "<group>"; };
-		40B192B222972FCE00664959 /* NowInCinemaCoodrinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NowInCinemaCoodrinator.swift; sourceTree = "<group>"; };
+		40B192B122972FCE00664959 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		40B192B222972FCE00664959 /* ListCoodrinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCoodrinator.swift; sourceTree = "<group>"; };
 		40B192B322972FCE00664959 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		40B192BA2297307300664959 /* f2.shared.global.fastly.net.cer */ = {isa = PBXFileReference; lastKnownFileType = file; name = f2.shared.global.fastly.net.cer; path = ../../../GiphyAPI/GiphyAPITests/f2.shared.global.fastly.net.cer; sourceTree = "<group>"; };
+		40B192BE229734D800664959 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		40B192C0229AB2BF00664959 /* GiphyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphyService.swift; sourceTree = "<group>"; };
+		40B192C3229AD6C000664959 /* Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dependencies.swift; sourceTree = "<group>"; };
+		40B192C5229AEACD00664959 /* RenderingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderingViewController.swift; sourceTree = "<group>"; };
+		40B192C8229AEF8C00664959 /* Throttler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Throttler.swift; sourceTree = "<group>"; };
+		40B192C9229AEF8C00664959 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		40B192CA229AEF8C00664959 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		40B192CB229AEF8C00664959 /* DateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
+		40B192D0229AF32F00664959 /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		40B192D5229B093B00664959 /* LoadingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingViewController.swift; sourceTree = "<group>"; };
+		40B192D7229B173600664959 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		40B192D9229B400200664959 /* UniversalTableHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalTableHandler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,13 +86,14 @@
 		40B1929C22972BD700664959 /* GiphyDemo */ = {
 			isa = PBXGroup;
 			children = (
+				40B192C7229AEF8C00664959 /* Utilities */,
+				40B192B92297305B00664959 /* Meta */,
+				40B192B82297303A00664959 /* Resources */,
+				40B192BD2297341C00664959 /* Services */,
 				40B192AF22972FCE00664959 /* Coordinators */,
+				40B192BC2297319C00664959 /* ViewModels */,
+				40B192C2229AD1E600664959 /* ViewControllers */,
 				40B1929D22972BD700664959 /* AppDelegate.swift */,
-				40B1929F22972BD700664959 /* ViewController.swift */,
-				40B192A122972BD700664959 /* Main.storyboard */,
-				40B192A422972BDA00664959 /* Assets.xcassets */,
-				40B192A622972BDA00664959 /* LaunchScreen.storyboard */,
-				40B192A922972BDA00664959 /* Info.plist */,
 			);
 			path = GiphyDemo;
 			sourceTree = "<group>";
@@ -77,11 +102,70 @@
 			isa = PBXGroup;
 			children = (
 				40B192B022972FCE00664959 /* AppCoordinator.swift */,
-				40B192B122972FCE00664959 /* MovieDetailsCoordinator.swift */,
-				40B192B222972FCE00664959 /* NowInCinemaCoodrinator.swift */,
+				40B192B122972FCE00664959 /* DetailsCoordinator.swift */,
+				40B192B222972FCE00664959 /* ListCoodrinator.swift */,
 				40B192B322972FCE00664959 /* Coordinator.swift */,
 			);
 			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		40B192B82297303A00664959 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				40B192A422972BDA00664959 /* Assets.xcassets */,
+				40B192A622972BDA00664959 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		40B192B92297305B00664959 /* Meta */ = {
+			isa = PBXGroup;
+			children = (
+				40B192BA2297307300664959 /* f2.shared.global.fastly.net.cer */,
+				40B192A922972BDA00664959 /* Info.plist */,
+			);
+			path = Meta;
+			sourceTree = "<group>";
+		};
+		40B192BC2297319C00664959 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		40B192BD2297341C00664959 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				40B192BE229734D800664959 /* ImageService.swift */,
+				40B192C0229AB2BF00664959 /* GiphyService.swift */,
+				40B192C3229AD6C000664959 /* Dependencies.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		40B192C2229AD1E600664959 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				40B192C5229AEACD00664959 /* RenderingViewController.swift */,
+				40B192D0229AF32F00664959 /* ImageViewController.swift */,
+				40B192D5229B093B00664959 /* LoadingViewController.swift */,
+				40B192D7229B173600664959 /* TableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		40B192C7229AEF8C00664959 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				40B192D9229B400200664959 /* UniversalTableHandler.swift */,
+				40B192C8229AEF8C00664959 /* Throttler.swift */,
+				40B192C9229AEF8C00664959 /* StringExtensions.swift */,
+				40B192CA229AEF8C00664959 /* UIViewExtension.swift */,
+				40B192CB229AEF8C00664959 /* DateExtensions.swift */,
+				40007639229BDFDE0004EE01 /* TableDataSource.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,9 +226,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40B192BB2297307300664959 /* f2.shared.global.fastly.net.cer in Resources */,
 				40B192A822972BDA00664959 /* LaunchScreen.storyboard in Resources */,
 				40B192A522972BDA00664959 /* Assets.xcassets in Resources */,
-				40B192A322972BD700664959 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -156,25 +240,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				40B192B422972FCE00664959 /* AppCoordinator.swift in Sources */,
-				40B192A022972BD700664959 /* ViewController.swift in Sources */,
+				40B192DA229B400200664959 /* UniversalTableHandler.swift in Sources */,
 				40B192B722972FCE00664959 /* Coordinator.swift in Sources */,
-				40B192B622972FCE00664959 /* NowInCinemaCoodrinator.swift in Sources */,
-				40B192B522972FCE00664959 /* MovieDetailsCoordinator.swift in Sources */,
+				40B192D6229B093B00664959 /* LoadingViewController.swift in Sources */,
+				40B192B622972FCE00664959 /* ListCoodrinator.swift in Sources */,
+				40B192B522972FCE00664959 /* DetailsCoordinator.swift in Sources */,
+				40B192C4229AD6C000664959 /* Dependencies.swift in Sources */,
+				4000763A229BDFDE0004EE01 /* TableDataSource.swift in Sources */,
 				40B1929E22972BD700664959 /* AppDelegate.swift in Sources */,
+				40B192CE229AEF8C00664959 /* UIViewExtension.swift in Sources */,
+				40B192CD229AEF8C00664959 /* StringExtensions.swift in Sources */,
+				40B192CC229AEF8C00664959 /* Throttler.swift in Sources */,
+				40B192C6229AEACD00664959 /* RenderingViewController.swift in Sources */,
+				40B192D8229B173600664959 /* TableViewController.swift in Sources */,
+				40B192BF229734D800664959 /* ImageService.swift in Sources */,
+				40B192C1229AB2BF00664959 /* GiphyService.swift in Sources */,
+				40B192CF229AEF8C00664959 /* DateExtensions.swift in Sources */,
+				40B192D1229AF32F00664959 /* ImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		40B192A122972BD700664959 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				40B192A222972BD700664959 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		40B192A622972BDA00664959 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -308,7 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R596F9CQZ5;
-				INFOPLIST_FILE = GiphyDemo/Info.plist;
+				INFOPLIST_FILE = GiphyDemo/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -326,7 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = R596F9CQZ5;
-				INFOPLIST_FILE = GiphyDemo/Info.plist;
+				INFOPLIST_FILE = GiphyDemo/Meta/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
