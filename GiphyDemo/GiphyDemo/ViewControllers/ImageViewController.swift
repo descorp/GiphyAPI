@@ -38,12 +38,18 @@ final class ImageViewController: LoadingViewController {
         super.viewDidLoad()
         
         dependency.imageService.load(path: url) { [weak self] result in
-            switch result {
+            DispatchQueue.main.async {
+                switch result {
                 case .failure(_):
-                    self?.imageView.image = UIImage(named: "icon_broken_image")
+                    print("failed loading image: \(self?.url)")
                 case .success(let image):
                     self?.indicator.stopAnimating()
                     self?.imageView.image = image
+                    self?.imageView.alpha = 0
+                    UIView.animate(withDuration: 0.25, animations: {
+                        self?.imageView.alpha = 1
+                    })
+                }
             }
         }
     }

@@ -47,7 +47,6 @@ class GifListCoodrinator: Coordinator {
     }
     
     private func onGifSelected(_ gif: Gif, _ cell: UITableViewCell) {
-        //let transition = TransitionViewController(frame: cell.frame)
         let detailsCoordinator = GifDetailsCoordinator(model: gif,
                                                        root: self.rootViewController,
                                                        dependency: dependency,
