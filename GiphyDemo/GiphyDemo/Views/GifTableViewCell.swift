@@ -12,16 +12,20 @@ import GiphyAPI
 class GifTableViewCell: UITableViewCell, TableCell {
     typealias Dependency = HasImageLoader
     
-    private let padding: CGFloat = 32
+    private let padding: CGFloat = 44
     
     var controller: UIViewController?
     
     func update(context: Gif) {
+        self.selectionStyle = .none
         contentView.subviews.forEach { $0.removeFromSuperview() }
         
         let imageController = ImageViewController(imageUrl: context.images.fixedWidth.url, dependency: AppDependency.shared)
         self.contentView.addSubview(imageController.view)
-        imageController.view.fill(container: self.contentView, padding: UIEdgeInsets(top: -padding, left: 0, bottom: 0, right: 0))
+        imageController.view.fill(container: self.contentView, padding: UIEdgeInsets(top: -padding / 2,
+                                                                                     left: 0,
+                                                                                     bottom: padding / 2,
+                                                                                     right: 0))
         self.controller = imageController
         
         guard
@@ -30,8 +34,22 @@ class GifTableViewCell: UITableViewCell, TableCell {
         else { return }
         
         let screenwidth = UIScreen.main.bounds.width
-        let height = (CGFloat(imageHeight) * screenwidth / CGFloat(widthHeight)) + padding
-        
-        imageController.view.heightAnchor.constraint(equalToConstant: height).isActive = true
+        let height = (CGFloat(imageHeight) * screenwidth / CGFloat(widthHeight))
+        imageController.view.heightAnchor.constraint(greaterThanOrEqualToConstant: height).isActive = true
+    }
+}
+
+extension GifTableViewCell: Highlighable {
+    
+    func highlight() {
+        UIView.animate(withDuration: 0.5) {
+            self.controller?.view.transform = .init(scaleX: 0.9, y: 0.9)
+        }
+    }
+    
+    func unhighlight() {
+        UIView.animate(withDuration: 0.5) {
+            self.controller?.view.transform = .identity
+        }
     }
 }

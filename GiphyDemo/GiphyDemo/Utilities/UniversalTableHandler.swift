@@ -15,6 +15,11 @@ protocol TableCell: UITableViewCell {
     static func registerCell(in tableview: UITableView)
 }
 
+protocol Highlighable {
+    func highlight()
+    func unhighlight()
+}
+
 extension TableCell {
     static var cellIdentifier: String {
         return String(describing: self)
@@ -69,6 +74,18 @@ where Cell.TableItem == T, Source.Item == T {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = dataSource[indexPath.item]
         self.selectAction?(item)
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? Highlighable {
+            cell.highlight()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? Highlighable {
+            cell.unhighlight()
+        }
     }
 }
 

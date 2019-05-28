@@ -35,6 +35,7 @@ class GifListCoodrinator: Coordinator {
                                                     preset: pagenable.data,
                                                     dependency: strongSelf.dependency)
                     let controller = TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: dataSource)
+                    controller.tableView.separatorStyle = .none
                     strongSelf.rootViewController.render(controller)
                 case .failure(let error):
                     let controller = ErrorViewController(error: error)
