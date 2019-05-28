@@ -29,8 +29,11 @@ class GifListCoodrinator: Coordinator {
             DispatchQueue.main.async { [weak self] in
                 guard let strongSelf = self else { return }
                 switch result {
-                case .success(let items):
-                    let dataSource = GifsDataSource(pageSize: 25, preset: items, dependency: strongSelf.dependency)
+                case .success(let pagenable):
+                    let dataSource = GifsDataSource(pageSize: 25,
+                                                    total: pagenable.total,
+                                                    preset: pagenable.data,
+                                                    dependency: strongSelf.dependency)
                     let controller = TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: dataSource)
                     strongSelf.rootViewController.render(controller)
                 case .failure(let error):

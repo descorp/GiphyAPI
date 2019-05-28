@@ -15,8 +15,14 @@ protocol ImageLoader {
 }
 
 protocol DataProvider {
-    func getTranding(limit: Int, page: Int, than handler: @escaping (Result<[Gif]>) -> Void)
+    func getTranding(limit: Int, page: Int, than handler: @escaping (Result<PaginableData<Gif>>) -> Void)
     func getBy(id: Int, than handler: @escaping (Result<Gif>) -> Void)
+}
+
+struct PaginableData<T> {
+    let total: Int
+    let offset: Int
+    let data: [T]
 }
 
 class GiphyService : ImageLoader, DataProvider {
@@ -41,13 +47,16 @@ class GiphyService : ImageLoader, DataProvider {
         }.resume()
     }
     
-    func getTranding(limit: Int, page: Int, than handler: @escaping (Result<[Gif]>) -> Void) {
-        api.request(Endpoint.tranding(limit: limit, offset: page)) { result in
+    func getTranding(limit: Int, page: Int, than handler: @escaping (Result<PaginableData<Gif>>) -> Void) {
+        api.request(Endpoint.tranding(limit: limit, offset: limit * page)) { result in
             switch result {
             case .failure(let error):
                 handler(.failure(error))
             case .success(let response):
-                handler(.success(response.data))
+                let paginable = PaginableData(total: response.pagination?.totalCount ?? Int.max,
+                                              offset: response.pagination?.offset ?? 0,
+                                              data: response.data)
+                handler(.success(paginable))
             }
         }
     }

@@ -19,7 +19,7 @@ final class ImageViewController: LoadingViewController {
         let imageView = UIImageView(frame: CGRect.zero)
         self.view.addSubview(imageView)
         imageView.fill(container: self.view)
-        imageView.contentMode = .center
+        imageView.isUserInteractionEnabled = false
         return imageView
     }()
     
