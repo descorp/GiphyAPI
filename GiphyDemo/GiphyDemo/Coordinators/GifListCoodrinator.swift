@@ -34,7 +34,8 @@ class GifListCoodrinator: Coordinator {
                                                     total: pagenable.total,
                                                     preset: pagenable.data,
                                                     dependency: strongSelf.dependency)
-                    let controller = TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: dataSource)
+                    let controller = TableViewController<Gif, GifTableViewCell, GifsDataSource>(dataSource: dataSource,
+                                                                                                onSelect: strongSelf.onGifSelected)
                     controller.tableView.separatorStyle = .none
                     strongSelf.rootViewController.render(controller)
                 case .failure(let error):
@@ -43,5 +44,15 @@ class GifListCoodrinator: Coordinator {
                 }
             }
         }
+    }
+    
+    private func onGifSelected(_ gif: Gif, _ cell: UITableViewCell) {
+        //let transition = TransitionViewController(frame: cell.frame)
+        let detailsCoordinator = GifDetailsCoordinator(model: gif,
+                                                       root: self.rootViewController,
+                                                       dependency: dependency,
+                                                       andParentCoordinator: self)
+        self.childCoordinators.append(detailsCoordinator)
+        detailsCoordinator.start()
     }
 }

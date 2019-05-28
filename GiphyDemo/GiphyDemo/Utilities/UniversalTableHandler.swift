@@ -30,10 +30,10 @@ extension TableCell {
     }
 }
 
-class UniversalTableHandler<T, Cell: TableCell, Source: TableDataSource> : NSObject, UITableViewDelegate, UITableViewDataSource
+class UniversalTableHandler<T, Cell: TableCell, Source: DataSource> : NSObject, UITableViewDelegate, UITableViewDataSource
 where Cell.TableItem == T, Source.Item == T {
 
-    typealias Action = (T)->Void
+    typealias Action = (T, UITableViewCell)->Void
     
     private var dataSource: Source
     private let selectAction: Action?
@@ -73,7 +73,8 @@ where Cell.TableItem == T, Source.Item == T {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let item = dataSource[indexPath.item]
-        self.selectAction?(item)
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        self.selectAction?(item, cell)
     }
     
     func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {

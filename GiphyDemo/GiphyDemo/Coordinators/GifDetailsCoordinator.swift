@@ -26,12 +26,19 @@ class GifDetailsCoordinator: Coordinator {
     }
     
     override func start() {
-        let viewController = ImageViewController(imageUrl: model.images.original.webp, dependency:dependency)
-        rootViewController.pushViewController(viewController, animated: true)
+        let transition = ModalViewController { [weak self] in
+            self?.finish()
+        }
+        
+        let imageViewController = ImageViewController(imageUrl: model.images.original.url, size: , dependency:dependency)
+        imageViewController.imageView.contentMode = .scaleAspectFit
+        transition.render(imageViewController)
+        
+        rootViewController.present(transition, animated: true, completion: nil)
     }
     
     override func finish() {
-        rootViewController.popViewController(animated: true)
+        rootViewController.dismiss(animated: true, completion: nil)
     }
     
     func viewModelDidThrowError(_ viewModel: Gif, error: Error?) {

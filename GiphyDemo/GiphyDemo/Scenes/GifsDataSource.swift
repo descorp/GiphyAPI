@@ -1,35 +1,15 @@
 //
-//  TableDataSource.swift
+//  GifsDataSource.swift
 //  GiphyDemo
 //
-//  Created by Vladimir Abramichev on 27/05/2019.
+//  Created by Vladimir Abramichev on 28/05/2019.
 //  Copyright © 2019 Vladimir Abramichev. All rights reserved.
 //
 
 import UIKit
 import GiphyAPI
 
-protocol TableDataSource {
-    associatedtype Item
-    
-    var count: Int { get }
-    subscript(index: Int) -> Item { get set }
-}
-
-extension TableDataSource where Item:Equatable {
-    mutating func updateItem(_ newItem: Item) -> Int? {
-        for i in 0...count {
-            let item = self[i]
-            if item == newItem {
-                self[i] = item
-                return i
-            }
-        }
-        return nil
-    }
-}
-
-class GifsDataSource: NSObject, TableDataSource, UITableViewDataSourcePrefetching {
+class GifsDataSource: NSObject, DataSource, UITableViewDataSourcePrefetching {
     
     typealias Item = Gif
     typealias Dependency = HasGiphyService

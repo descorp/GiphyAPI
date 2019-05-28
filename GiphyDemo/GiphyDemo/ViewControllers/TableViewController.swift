@@ -9,13 +9,15 @@
 import UIKit
 
 
-class TableViewController<T, Cell: TableCell, Source: TableDataSource>: UITableViewController
+class TableViewController<T, Cell: TableCell, Source: DataSource>: UITableViewController
     where Cell.TableItem == T, Source.Item == T {
     
     let tableHandler: UniversalTableHandler<T, Cell, Source>
     
-    init(dataSource: Source, style: UITableView.Style = .plain) {
-        self.tableHandler = UniversalTableHandler(dataSource: dataSource)
+    init(dataSource: Source,
+         style: UITableView.Style = .plain,
+         onSelect: @escaping UniversalTableHandler<T, Cell, Source>.Action) {
+        self.tableHandler = UniversalTableHandler(dataSource: dataSource, select: onSelect)
         super.init(style: style)
     }
     
