@@ -11,10 +11,11 @@ import GiphyAPI
 
 class GifDetailsCoordinator: Coordinator {
     
-    typealias Dependency = HasImageService
+    typealias Dependency = HasImageService & HasGiphyService
     
     private let model: Gif
     private let dependency: Dependency
+    private var timer: Timer?
     
     init(model: Gif,
         root viewController: RenderingViewController,
@@ -30,19 +31,37 @@ class GifDetailsCoordinator: Coordinator {
             self?.finish()
         }
         
-        let imageViewController = ImageViewController(imageUrl: model.images.original.url, size: , dependency:dependency)
+        let imageViewController = ImageViewController(imageUrl: model.images.original.url, dependency:dependency)
         imageViewController.imageView.contentMode = .scaleAspectFit
         transition.render(imageViewController)
+        transition.view.backgroundColor = .black
         
         rootViewController.present(transition, animated: true, completion: nil)
+        
+        let timer = Timer(timeInterval: 10.0, repeats: true) { [weak self] timer in
+            print("Tick")
+            self?.onTick()
+        }
+        RunLoop.current.add(timer, forMode: .common)
+        self.timer = timer
     }
     
     override func finish() {
         rootViewController.dismiss(animated: true, completion: nil)
+        timer?.invalidate()
     }
     
-    func viewModelDidThrowError(_ viewModel: Gif, error: Error?) {
+    func onTick() {
+        self.dependency.gifService.getRandom { [weak self] result in
+            guard let dependency = self?.dependency,
+                  let renderView = self?.rootViewController.presentedViewController as? RenderingViewController,
+                case .success(let gif) = result else { return }
+            
+            DispatchQueue.main.async {
+                let imageViewController = ImageViewController(imageUrl: gif.images.original.url, dependency:dependency)
+                imageViewController.imageView.contentMode = .scaleAspectFit
+                renderView.render(imageViewController)
+            }
+        }
     }
-    
-    
 }

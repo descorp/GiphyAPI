@@ -17,6 +17,7 @@ protocol ImageLoader {
 protocol DataProvider {
     func getTranding(limit: Int, page: Int, than handler: @escaping (Result<PaginableData<Gif>>) -> Void)
     func getBy(id: Int, than handler: @escaping (Result<Gif>) -> Void)
+    func getRandom(than handler: @escaping (Result<Gif>) -> Void)
 }
 
 struct PaginableData<T> {
@@ -26,7 +27,6 @@ struct PaginableData<T> {
 }
 
 class GiphyService : ImageLoader, DataProvider {
-    
     private let api: ApiProvider
     
     init(requestBuilder: RequestBuilder) {
@@ -63,5 +63,16 @@ class GiphyService : ImageLoader, DataProvider {
     
     func getBy(id: Int, than handler: @escaping (Result<Gif>) -> Void) {
         
+    }
+    
+    func getRandom(than handler: @escaping (Result<Gif>) -> Void) {
+        api.request(Endpoint.random()) { result in
+            switch result {
+            case .failure(let error):
+                handler(.failure(error))
+            case .success(let response):
+                handler(.success(response.data))
+            }
+        }
     }
 }
