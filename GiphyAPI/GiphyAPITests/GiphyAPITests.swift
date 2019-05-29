@@ -24,7 +24,7 @@ class GiphyAPITests: XCTestCase {
         apiProvider = nil
     }
     
-    func testExample() {
+    func testTranding() {
         let successExpectation = expectation(description: "Success")
         apiProvider.request(Endpoint.tranding(limit: 15, offset: 1, rating: .ratedG)) { result in
             if case .success(let responce) = result {
@@ -32,6 +32,22 @@ class GiphyAPITests: XCTestCase {
                 XCTAssertNotNil(responce.data)
                 XCTAssertEqual(responce.data.count, 15)
                 XCTAssertEqual(responce.data[0].rating, Rating.ratedG)
+            } else {
+                XCTFail("Error: \(result)")
+            }
+            successExpectation.fulfill()
+        }
+        
+        waitForExpectations(timeout: 5, handler: nil)
+    }
+    
+    func testRandom() {
+        let successExpectation = expectation(description: "Success")
+        apiProvider.request(Endpoint.random(tag: "cat", rating: .ratedG)) { result in
+            if case .success(let responce) = result {
+                XCTAssertNotNil(responce)
+                XCTAssertNotNil(responce.data)
+                XCTAssertNotNil(responce.data.images)
             } else {
                 XCTFail("Error: \(result)")
             }

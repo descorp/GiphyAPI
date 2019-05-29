@@ -6,10 +6,9 @@
 //  Copyright © 2019 Vladimir Abramichev. All rights reserved.
 //
 
-import Foundation
 import ApiProvider
 
-public extension Endpoint where T == Response<Gif> {
+public extension Endpoint where T == Response<[Gif]> {
     static func tranding(limit: Int? = nil, offset: Int? = nil, rating: Rating? = nil) -> Endpoint {
         var query = [URLQueryItem]()
         

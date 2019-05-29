@@ -15,7 +15,7 @@ public struct Gif: Codable {
     public let url, bitlyGIFURL, bitlyURL, embedURL: String
     public let username: String
     public let source: String
-    public let rating: Rating
+    public let rating: Rating?
     public let contentURL, sourceTLD: String
     public let sourcePostURL: String
     public let isSticker: Int
@@ -23,7 +23,7 @@ public struct Gif: Codable {
     public let user: User?
     public let images: Images
     public let title: String
-    public let analytics: Analytics
+    public let analytics: Analytics?
     
     enum CodingKeys: String, CodingKey {
         case type, id, slug, url

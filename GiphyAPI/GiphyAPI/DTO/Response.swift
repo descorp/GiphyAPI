@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Giphy
 public struct Response<T: Codable>: Codable {
-    public let data: [T]
+    public let data: T
     public let pagination: Pagination?
     public let meta: Meta
 }

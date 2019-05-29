@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		40007648229C74510004EE01 /* f2.shared.global.fastly.net.cer in Resources */ = {isa = PBXBuildFile; fileRef = 40007646229C74430004EE01 /* f2.shared.global.fastly.net.cer */; };
+		4000765A229DEA7A0004EE01 /* Random.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40007658229DE5880004EE01 /* Random.swift */; };
 		40B1925F2295586300664959 /* GiphyAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40B192552295586300664959 /* GiphyAPI.framework */; };
 		40B192642295586300664959 /* GiphyAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40B192632295586300664959 /* GiphyAPITests.swift */; };
 		40B192662295586300664959 /* GiphyAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 40B192582295586300664959 /* GiphyAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		40007646229C74430004EE01 /* f2.shared.global.fastly.net.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = f2.shared.global.fastly.net.cer; sourceTree = "<group>"; };
+		40007658229DE5880004EE01 /* Random.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Random.swift; sourceTree = "<group>"; };
 		40B192552295586300664959 /* GiphyAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GiphyAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40B192582295586300664959 /* GiphyAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GiphyAPI.h; sourceTree = "<group>"; };
 		40B192592295586300664959 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				40B192812295E86800664959 /* Trending.swift */,
+				40007658229DE5880004EE01 /* Random.swift */,
 			);
 			path = Endpoints;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			files = (
 				40B1927C2295E7C700664959 /* Meta.swift in Sources */,
 				40B1927A2295E46500664959 /* Response.swift in Sources */,
+				4000765A229DEA7A0004EE01 /* Random.swift in Sources */,
 				40B192822295E86800664959 /* Trending.swift in Sources */,
 				40B192802295E7F700664959 /* User.swift in Sources */,
 				40B1927E2295E7E100664959 /* Pagination.swift in Sources */,
