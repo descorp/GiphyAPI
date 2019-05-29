@@ -39,4 +39,4 @@ Images cached.
 
 ## Credits
 
-<img src="https://developers.giphy.com/static/img/dev-logo-lg.7404c00322a8.gif" alt="Powered by The Giphy" width="150">
+<img src="https://developers.giphy.com/static/img/dev-logo-lg.7404c00322a8.gif" alt="Powered by The Giphy" width="300">
