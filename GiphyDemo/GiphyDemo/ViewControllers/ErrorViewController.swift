@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ApiProvider
 
 class ErrorViewController: UIViewController {
     
@@ -28,10 +29,16 @@ class ErrorViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
     
     override func viewDidLoad() {
-        if error.isNoInternet {
-            errorIcon.image = UIImage(named: "icon_error")
+        super.viewDidLoad()
+        if let apiError = error as? ApiProviderError,
+            case .network(let urlErrorOptional) = apiError,
+            let urlError = urlErrorOptional,
+            urlError.isNoInternet {
+            errorIcon.image = UIImage(named: "icon_noInternet")
+            return
         }
         
+        errorIcon.image = UIImage(named: "icon_error")
     }
 }
 
